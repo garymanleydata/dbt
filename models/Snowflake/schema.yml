@@ -1,0 +1,13 @@
+version: 2
+
+models:
+    - name: exercise_roll_up
+      description: "first dbt MOdel "
+      columns:
+          - name: date_done
+            description: "date exercise was done"
+          - name: activity_type_id
+            description: "id of the activity to map to the dim"
+          - name: activity_count
+            description: "count of activity performed"
+ 
