@@ -1,8 +1,16 @@
 version: 2
 
+sources:
+  - name: exercise_data
+    description: Source table from Snoflake
+    database: KEBOOLA_7127
+    schema: WORKSPACE_15661914
+    tables:
+    - name: EXERCISE_FACT
+
 models:
-    - name: exercise_roll_up
-      description: "first dbt MOdel "
+    - name: exercise_ru_day_fact
+      description: "first dbt fact table"
       columns:
           - name: date_done
             description: "date exercise was done"
