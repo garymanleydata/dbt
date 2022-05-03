@@ -19,4 +19,20 @@ models:
             description: "id of the activity to map to the dim"
           - name: activity_count
             description: "count of activity performed"
- 
+    - name: exercise_pivot_fact
+      description: "first dbt jinja using fact table"
+      columns:
+          - name: date_done
+            description: "date exercise was done"
+          - name: pull_up_count
+            description: "total pull ups"
+          - name: crunch_count
+            description: "total crunches"
+          - name: push_up_count
+            description: "total push ups "
+          - name: plank_time_count
+            description: "total plank time"
+          - name: dumbbells_count
+            description: "total dumbells lifted"
+          - name: box_jump_count
+            description: "total box jumps"
