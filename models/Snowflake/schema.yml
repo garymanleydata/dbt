@@ -7,6 +7,7 @@ sources:
     schema: WORKSPACE_15661914
     tables:
     - name: EXERCISE_FACT
+    - name: V_EXERCISE_STAR
 
 models:
     - name: exercise_ru_day_fact
