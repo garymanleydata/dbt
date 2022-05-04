@@ -1,5 +1,14 @@
-{{ config(materialized='table') }}
+{%- set activities = ['Pull_Up', 'Crunch','Push_Up','Plank_Time','Dumbbells','Box_Jump'] -%}
 
-select activity_type_id, sum(activity_count) activity_count
-from {{ source('exercise_data','EXERCISE_FACT') }}
-group by activity_type_id
+select {% for activity in activities -%}
+
+       sum(case when replace(description,' ','_') = '{{ activity }}' then act_count else 0 end)
+            as {{ activity }}_count
+
+       {%- if not loop.last -%}
+         ,
+       {% endif -%}
+
+       {%- endfor %}
+ 
+from {{ source('exercise_data','V_EXERCISE_STAR') }}
