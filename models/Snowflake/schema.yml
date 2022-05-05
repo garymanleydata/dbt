@@ -8,6 +8,7 @@ sources:
     tables:
     - name: EXERCISE_FACT
     - name: V_EXERCISE_STAR
+    - name: ACTIVITY_TYPE_DIM
 
 models:
     - name: exercise_ru_day_fact
