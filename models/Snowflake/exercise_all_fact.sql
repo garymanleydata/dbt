@@ -1,9 +1,14 @@
-{%- set activities = ['Pull_Up', 'Crunch','Push_Up','Plank_Time','Dumbbells','Box_Jump'] -%}
+{%- set activities = dbt_utils.get_column_values(
+    table=ref('stg_exercise_star'),
+    column= 'description'
+) -%}
 
-select {% for activity in activities -%}
+SELECT 
+      {{ dbt_utils.current_timestamp() }} last_refresh,
+       {% for activity in activities -%}
 
-       sum(case when replace(description,' ','_') = '{{ activity }}' then act_count else 0 end)
-            as {{ activity }}_count
+       sum(case when description = '{{ activity }}' then act_count else 0 end)
+            as {{ dbt_utils.slugify(activity) }}_count
 
        {%- if not loop.last -%}
          ,
@@ -11,4 +16,4 @@ select {% for activity in activities -%}
 
        {%- endfor %}
  
-from {{ source('exercise_data','V_EXERCISE_STAR') }}
+from {{ ref('stg_exercise_star') }}
