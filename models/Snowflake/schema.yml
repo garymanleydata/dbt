@@ -54,3 +54,10 @@ models:
             description: "total dumbells lifted"
           - name: box_jump_count
             description: "total box jumps"
+    - name: dates_dim
+      description: "Dates Dimension"
+      columns:
+          - name: date_day
+            description: "date exercise was done"
+            tests:
+            - dbt_constraints.primary_key
