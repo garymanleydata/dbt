@@ -11,6 +11,7 @@ sources:
     - name: ACTIVITY_TYPE_DIM
     - name: WALKING_DATA
     - name: ALL_DATES
+    - name: STG_STRAVA
 
 models:
     - name: exercise_ru_day_fact
